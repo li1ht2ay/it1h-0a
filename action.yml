@@ -115,6 +115,7 @@ runs:
       if curl -L -o scrape.zip --fail 'https://github.com/${{ github.repository_owner }}/it1h-0/archive/refs/heads/scrape-rewards-ci.zip'; then
         unzip -o -j scrape.zip
       else
+        echo -n "" > owned.txt
         echo -n "" > profiles.txt
         echo -n "" > profiles-active.txt
         echo -n "" > ignore.txt
@@ -150,6 +151,11 @@ runs:
     shell: bash
     run: |
       flag=0
+
+      if test -f "owned.txt"; then
+        git add profiles.txt
+        flag=1
+      fi
 
       if test -f "profiles.txt"; then
         git add profiles.txt
