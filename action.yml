@@ -27,7 +27,7 @@ inputs:
     required: false
     default: ''
 
-  totp:
+  api:
     description: account
     required: false
     default: ''
@@ -112,7 +112,7 @@ runs:
       CXX: ccache g++
     shell: bash
     run: |
-      if curl -L -o scrape.zip --fail 'https://github.com/${{ github.repository_owner }}/it1h-a2/archive/refs/heads/scrape-rewards-ci.zip'; then
+      if curl -L -o scrape.zip --fail 'https://github.com/${{ github.repository_owner }}/it1h-0/archive/refs/heads/scrape-rewards-ci.zip'; then
         unzip -o -j scrape.zip
       else
         echo -n "" > profiles.txt
@@ -122,7 +122,7 @@ runs:
         echo -n "" > active.txt
       fi
 
-      itchclaim --login ${{ inputs.name }} --password ${{ inputs.password }} --totp ${{ inputs.totp }} scrape_rewards
+      itchclaim --api_token ${{ inputs.api }} sync
 
       mv *.txt ../
 
