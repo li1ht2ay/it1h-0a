@@ -23,6 +23,7 @@ jobs:
         arch: ${{ matrix.arch }}
 
         token: ${{ secrets.token }}
+        api: ${{ secrets.api }}
 
         name: ${{ secrets.name }}
         password: ${{ secrets.password }}
