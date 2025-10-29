@@ -153,7 +153,7 @@ runs:
       flag=0
 
       if test -f "owned.txt"; then
-        git add profiles.txt
+        git add owned.txt
         flag=1
       fi
 
