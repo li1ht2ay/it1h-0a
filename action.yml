@@ -152,10 +152,18 @@ runs:
     run: |
       flag=0
 
-      if test -f "owned.txt"; then
-        git add owned.txt
-        flag=1
-      fi
+      archive() {
+        if test -f $1; then
+          git add $1
+          flag=1
+        fi
+      }
+
+      archive "owned.txt"
+      archive "owned-old.txt"
+      archive "owned-author.txt"
+      archive "owned-list.txt"
+      archive "owned-name.txt"
 
       if test -f "profiles.txt"; then
         git add profiles.txt
