@@ -159,36 +159,18 @@ runs:
         fi
       }
 
+
       archive "owned.txt"
       archive "owned-old.txt"
       archive "owned-author.txt"
       archive "owned-list.txt"
       archive "owned-name.txt"
 
-      if test -f "profiles.txt"; then
-        git add profiles.txt
-        flag=1
-      fi
-
-      if test -f "profiles-active.txt"; then
-        git add profiles-active.txt
-        flag=1
-      fi
-
-      if test -f "collections.txt"; then
-        git add collections.txt
-        flag=1
-      fi
-
-      if test -f "active.txt"; then
-        git add active.txt
-        flag=1
-      fi
-
-      if test -f "ignore.txt"; then
-        git add ignore.txt
-        flag=1
-      fi
+      archive "profiles.txt"
+      archive "profiles-active.txt"
+      archive "collections.txt"
+      archive "active.txt"
+      archive "ignore.txt"
 
 
       if (( $flag == 1 )); then
