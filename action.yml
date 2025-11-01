@@ -123,7 +123,7 @@ runs:
         echo -n "" > active.txt
       fi
 
-      python ItchCustom.py --api_token ${{ inputs.api }} sync
+      python ItchClaim/ItchCustom.py --api_token ${{ inputs.api }} sync
 
       mv *.txt ../
 
